@@ -21,7 +21,9 @@ We offer some plots for the standard C++ datatypes: int, float, long and doubles
 
 To use this code, you can simply run the command: 
 
-```make run```
+```C++
+make run
+```
 
 and you will wait for few hours before all the code gets the performance data under data folder, and plots in the figures folder. 
 
