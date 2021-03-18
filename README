@@ -21,7 +21,7 @@ We offer some plots for the standard C++ datatypes: int, float, long and doubles
 
 To use this code, you can simply run the command: 
 
-```C++
+```
 make run
 ```
 
