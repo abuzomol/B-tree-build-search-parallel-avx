@@ -122,7 +122,7 @@ std::vector<ll> batchQuerySearchSIMD(std::vector<dtype> &tree, ll totalNodes,
     std::vector<ll> results;
     results.reserve(queries.size());
 
-    int regBlocks = sizeof(tree[0])*B/32;
+    int regBlocks = sizeof(dtype)*B/32;
 
     #pragma omp parallel for num_threads(processors)
     for (ll i = 0; i < queries.size(); i++)

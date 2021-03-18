@@ -4,8 +4,8 @@ if [ -z "$HASAVX2" ];
 then 
   echo "ERROR: This device doesn't have AVX2"; exit;
 else
-  echo -e "This device has AVX2"
-  echo -e "Compiling sequential files:"
+  echo "This device has AVX2"
+  echo "Compiling sequential files:"
   echo "compiling for type int"
   g++ -std=c++17 -mavx2 -O3 mathHeader.cpp seq-build-search.cpp -o seqBuildSearchInt
   echo "compiling for type long"

@@ -63,11 +63,11 @@ for N in itemSize:
         for program in programs:
             for processor in processors:
                 print(programPath + program+processor, str(N), str(C))
-                process = subprocess.run([programPath + program+processor, str(
-                    N), str(C)], stdout=subprocess.PIPE, universal_newlines=True)
+                process = subprocess.run([programPath + program+processor, str(N), str(C)], stdout=subprocess.PIPE, universal_newlines=True)
                 output = process.stdout
                 print(output)
                 halfSplit = output.split(" ")
+                print(halfSplit)
                 splitted = [str(N), str(C)] + [halfSplit[i] for i in range(len(halfSplit) - 1)]
                 words = ""
                 for i in range(len(splitted)):
