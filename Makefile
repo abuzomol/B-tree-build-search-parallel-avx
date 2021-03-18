@@ -1,5 +1,6 @@
-./run-serial.sh
-./run-parallel.sh
+run:
+	# run-serial.sh
+	run-parallel.sh
 
 test:
 
