@@ -14,11 +14,12 @@ using ll = int;
 using dtype = int;
 #endif
 
+
 //search for key in btree till the leaves level, while going through each node sequentially
 //return the index of the value if found, or -1 otherwise
 //B is total number of values in a node
 template <typename T>
-ll nodeSequentialSearch(std::vector<T> &tree, ll &B, ll &totalNodes, ll &key)
+ll nodeSequentialSearch(std::vector<T> &tree, ll &B, ll &totalNodes, T &key)
 {
     ll k = 0;
     ll res = -1;
@@ -65,7 +66,7 @@ std::vector<ll> batchSearchQueriesSeq(std::vector<T> &tree, ll totalNodes,
 //return the index of the value if found, or -1 otherwise
 //B is total number of values in a node
 template <typename T>
-ll nodeBinarySearch(std::vector<T> &tree, ll &B, ll &totalNodes, ll &key)
+ll nodeBinarySearch(std::vector<T> &tree, ll &B, ll &totalNodes, T &key)
 {
     ll k = 0;
     ll res = -1;
@@ -121,5 +122,6 @@ std::vector<ll> batchQuerySearchSIMD(std::vector<dtype> &tree, ll totalNodes,
     }
     return results;
 }
+
 
 #endif

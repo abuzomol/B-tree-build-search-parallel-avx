@@ -24,6 +24,7 @@ using ll = int;
 using dtype = int;
 #endif
 
+
 class RandomNumberBetween
 {
 public:
@@ -186,6 +187,6 @@ int main(int argc, char **argv)
       }
       // std::cout << resultBinary[i] << " ";
     }
-  std::cout << std::endl;
+  // std::cout << std::endl;
   return 0;
 }

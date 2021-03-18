@@ -73,13 +73,6 @@ int main(int argc, char **argv)
   std::chrono::duration<double> elapsed = finish - start;
   std::cout << elapsed.count() << " ";
 
-  //Build leaves level and parent level together and rest horizontal.
-  // start = std::chrono::high_resolution_clock::now();
-  // buildTreeOptimalHorizontalTwoLayers(items, tree2, 1, 0, items.size() - 1, CHILD_SIZE);
-  // finish = std::chrono::high_resolution_clock::now();
-  // elapsed = finish - start;
-  // std::cout << elapsed.count() << " ";
-
   //Build tree vertically
   start = std::chrono::high_resolution_clock::now();
   buildTreeOptimalVertical(items, tree3, 1, 0, items.size() - 1, VAL_SIZE);
@@ -87,59 +80,11 @@ int main(int argc, char **argv)
   elapsed = finish - start;
   std::cout << elapsed.count() << " ";
 
-  // std::cout << std::endl;
-
-  //g++ -std=c++17 -mavx2 seqBuildOptimal.cpp
-  // ll power = 0;
-  // for (int i = 0; i < tree.capacity(); i++)
-  // {
-  //   if (i == binPow(VAL_SIZE + 1, power))
-  //   {
-  //     std::cout << "\n"
-  //               << i << ": ";
-  //     power++;
-  //   }
-  //   if (tree[i] != tree3[i])
-  //   {
-  //     std::cout << i << " ";
-  //   }
-  // }
-  // std::cout << std::endl;
-  // power = 0;
-  // for (int i = 0; i < tree.capacity(); i++)
-  // {
-  //   if (i == binPow(VAL_SIZE + 1, power))
-  //   {
-  //     std::cout << "\n"
-  //               << i << ": ";
-  //     power++;
-  //   }
-  //   std::cout << tree[i] << " ";
-  // }
-  // std::cout << std::endl;
-  // // for (int i = 0; i < tree.capacity(); i++)
-  // // {
-  // //   std::cout << tree2[i] << " ";
-  // // }
-  // power = 0;
-  // std::cout << std::endl;
-  // for (int i = 0; i < tree.capacity(); i++)
-  // {
-  //   if (i == binPow(VAL_SIZE + 1, power))
-  //   {
-  //     std::cout << "\n"
-  //               << i << ": ";
-  //     power++;
-  //   }
-  //   std::cout << tree3[i] << " ";
-  // }
-  // std::cout << std::endl;
-  //***********************************************************
   //Construct random queries
   std::vector<dtype> queries;
-  std::generate_n(std::back_inserter(queries), itemsSize, RandomNumberBetween(1, itemsSize + 10));
+  // std::generate_n(std::back_inserter(queries), itemsSize, RandomNumberBetween(1, itemsSize + 10));
   for (int i = 0; i < itemsSize; i++)
-    queries[i] = items[i];
+    queries[i] = items[i]; // non-random queries
   //std::vector<ll> queries = {-1, 2, 0, 3, 5, 16, 10, 17, 18, 200, 30};
   // std::cout << "tree:" << CHILD_SIZE - 1;
   auto totalNodes = (tree.capacity() - 1) / (CHILD_SIZE - 1);
@@ -171,7 +116,7 @@ int main(int argc, char **argv)
     elapsed = finish - start;
     //output search time
     std::cout << elapsed.count() << " ";
-    std::cout << std::endl;
+    
     for (int i = 0; i < resultSIMD.capacity(); i++)
     {
       if (resultSIMD[i] != resultBinary[i])
