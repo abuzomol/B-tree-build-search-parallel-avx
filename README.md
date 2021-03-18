@@ -1,7 +1,7 @@
 Requirements:
 - INTEL processor that allows AVX2
 - C++17
--python3 (matplot, ...NEED LIST OF PACKAGES)
+- python3 (matplot, ...NEED LIST OF PACKAGES)
 - cmake check verion
 - Access to Linux command lscpu
 
