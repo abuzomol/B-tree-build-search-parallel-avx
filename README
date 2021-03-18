@@ -20,7 +20,7 @@ The code is general enough to build bottom up and search a tree over any datatyp
 We offer some plots for the standard C++ datatypes: int, float, long and doubles. Two folders contain the main bulk of the code: code/serial and code/parallel.
 
 To use this code, you can simply run the command: 
-make run
+```make run
 and you will wait for few hours before all the code gets the performance data under data folder, and plots in the figures folder. 
 
 The code is well-documented, and if a concept is missing, we recommend to read the pdf file attached. 
