@@ -1,4 +1,5 @@
 Requirements:
+
 - INTEL processor that allows AVX2
 - C++17
 - python3 (matplot, ...NEED LIST OF PACKAGES)
@@ -35,6 +36,6 @@ make plot
 
 The code is well-documented, and if a concept is missing, we recommend to read the description at NEED LINK HERE
 
-This is a part of on going project to use B-tree in geomtric data strucutres in general, and point location problem specificaly. 
+This is a part of on going project to use B-tree in geometric data structures in general, and point location problem specifically. 
 
 Muzamil Yahia
