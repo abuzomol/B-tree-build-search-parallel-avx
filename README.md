@@ -30,7 +30,7 @@ and you will wait for few hours before all the code gets the performance data un
 To make pre-designed plots, you can run the command:
 
 ```
-make clean
+make plot
 ```
 
 The code is well-documented, and if a concept is missing, we recommend to read the pdf file attached. 
