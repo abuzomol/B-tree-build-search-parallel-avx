@@ -16,7 +16,7 @@ The size of block is often 64 bytes which is the size of the current cache line.
 
 This code provides some performance measures over different data sizes, different choices for the node size, the number of processors and different data types. 
 
-The code is general enough to build and search a tree over any datatype with the exception of AVX2 instructions which requires some hardcode tweaking.
+The code is general enough to build bottom up and search a tree over any datatype with the exception of AVX2 instructions which requires some hardcode tweaking.
 
 We offer some plots for the standard C++ datatypes: int, float, long and doubles. Two folders contain the main bulk of the code: code/serial and code/parallel.
 
