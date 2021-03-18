@@ -25,7 +25,13 @@ To use this code, you can simply run the command:
 make run
 ```
 
-and you will wait for few hours before all the code gets the performance data under data folder, and plots in the figures folder. 
+and you will wait for few hours before all the code gets the performance data under data folder in .csv files.
+
+To make pre-designed plots, you can run the command:
+
+```
+make clean
+```
 
 The code is well-documented, and if a concept is missing, we recommend to read the pdf file attached. 
 
