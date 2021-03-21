@@ -1,7 +1,8 @@
 Requirements:
+
 - INTEL processor that allows AVX2
 - C++17
--python3 (matplot, ...)
+- python3 (matplot, ...NEED LIST OF PACKAGES)
 - cmake check verion
 - Access to Linux command lscpu
 
@@ -25,10 +26,16 @@ To use this code, you can simply run the command:
 make run
 ```
 
-and you will wait for few hours before all the code gets the performance data under data folder, and plots in the figures folder. 
+and you will wait for few hours before all the code gets the performance data under data folder in .csv files.
 
-The code is well-documented, and if a concept is missing, we recommend to read the pdf file attached. 
+To make pre-designed plots, you can run the command:
 
-This is a part of on going project to use B-tree in geomtric data strucutres in general, and point location problem specificaly. 
+```
+make plot
+```
+
+The code is well-documented, and if a concept is missing, we recommend to read the description at NEED LINK HERE
+
+This is a part of on going project to use B-tree in geometric data structures in general, and point location problem specifically. 
 
 Muzamil Yahia
