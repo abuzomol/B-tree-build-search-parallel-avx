@@ -106,11 +106,11 @@ int main(int argc, char **argv)
   std::cout << elapsed.count() << " ";
   //***********************************************************
   // query the tree SIMD
-  std::cout << (sizeof(dtype) * VAL_SIZE);
+  // std::cout << (sizeof(dtype) * VAL_SIZE);
   if ( (sizeof(dtype) * VAL_SIZE ) % 64 == 0)
   {
     start = std::chrono::high_resolution_clock::now();
-    // auto resultSIMD = batchQuerySearchSIMD(tree, totalNodes, queries, VAL_SIZE);
+    auto resultSIMD = batchQuerySearchSIMD(tree, totalNodes, queries, VAL_SIZE);
     finish = std::chrono::high_resolution_clock::now();
     elapsed = finish - start;
     //output search time
