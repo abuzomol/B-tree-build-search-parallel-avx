@@ -15,11 +15,9 @@ using ll = int;
 using dtype = int;
 #endif
 
-
 #ifndef processors
 #define processors 8;
 #endif
-
 
 //search for key in btree till the leaves level, while going through each node sequentially
 //return the index of the value if found, or -1 otherwise
@@ -66,6 +64,7 @@ std::vector<ll> batchSearchQueriesSeq(std::vector<T> &tree, ll totalNodes,
     {
         results[i] = nodeSequentialSearch(tree, B, totalNodes, queries[i]);
     }
+
     return results;
 }
 
@@ -111,24 +110,26 @@ std::vector<ll> batchQuerySearchBinary(std::vector<T> &tree, ll totalNodes,
     {
         results[i] = nodeBinarySearch(tree, B, totalNodes, queries[i]);
     }
+
     return results;
 }
 
 //batch search query function
 //B is total number of values in a node
 std::vector<ll> batchQuerySearchSIMD(std::vector<dtype> &tree, ll totalNodes,
-                                       std::vector<dtype> &queries, ll B)
+                                     std::vector<dtype> &queries, ll B)
 {
     std::vector<ll> results;
     results.reserve(queries.size());
 
-    int regBlocks = sizeof(dtype)*B/32;
+    int regBlocks = sizeof(dtype) * B / 32;
 
     #pragma omp parallel for num_threads(processors)
     for (ll i = 0; i < queries.size(); i++)
-    {   
+    {
         results[i] = searchSimd(queries[i], B, totalNodes, tree, regBlocks);
     }
+
     return results;
 }
 

@@ -9,7 +9,6 @@ using ll = long long;
 using ll = int;
 #endif
 
-
 #ifndef processors
 #define processors 8;
 #endif
@@ -27,16 +26,19 @@ void buildPerfectTreeHorizontal(std::vector<S> &items, std::vector<T> &tree,
     ll powerHMinusI = 1;
     // copy items first to last level
     #pragma omp parallel for num_threads(processors)
+
     for (ll j = 0; j < powerH * (B - 1); j++)
     {
         tree[powerH + j] = T(items[j]);
     }
+
     //copy internal nodes
     for (ll i = height - 1; i >= 0; i--)
     {
         powerI /= B;
         powerHMinusI *= B;
-        #pragma omp parallel for num_threads(processors)
+    #pragma omp parallel for num_threads(processors)
+
         for (ll j = 0; j < powerI; j++)
         {
             ll alpha = j * powerHMinusI;
@@ -116,7 +118,7 @@ void fillCompleteTreeHorizontal(std::vector<S> &items, std::vector<T> &tree,
     {
         powerI /= B;
         powerHMinusI *= B;
-        // go through every node j in level i
+        // go through every node j in level i   
         #pragma omp parallel for num_threads(processors)
         for (ll j = 0; j < powerI; j++)
         {
@@ -158,7 +160,6 @@ void fillCompleteTreeHorizontal(std::vector<S> &items, std::vector<T> &tree,
                 }
             }
         }
-        //  }
     }
 }
 
