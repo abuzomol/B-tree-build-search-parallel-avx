@@ -40,8 +40,8 @@ header = "N,node size,build horizontal(s),build vertical(s),seq search(s),binary
 
 pwd = subprocess.run('pwd', stdout=subprocess.PIPE,
                      universal_newlines=True).stdout[:-1]
-programPath = pwd + '/code/parallel/'
-filePath = pwd + "/data"
+programPath = pwd + '/src/parallel/'
+filePath = pwd + "/experiments/data/"
 print(filePath)
 
 print(programPath)
@@ -51,7 +51,7 @@ itemSize = [2**25, 2**26, 2**27]
 for program in programs:
     for processor in processors:
         for N in itemSize:
-            fileName = filePath + "/" + program + \
+            fileName = filePath + program + \
                 processor + "-" + str(N) + ".csv"
             with open(fileName, "w") as fileInput:
                 fileInput.write(header)
@@ -74,7 +74,7 @@ for N in itemSize:
                 for i in range(len(splitted)):
                     words = words + splitted[i] + ","
                 words = words + "\n"
-                fileName = filePath + "/"+program + \
+                fileName = filePath+program + \
                     processor + "-" + str(N) + ".csv"
                 with open(fileName, "a") as fileInput:
                     fileInput.write(words)

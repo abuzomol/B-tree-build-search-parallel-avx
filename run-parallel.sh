@@ -1,4 +1,7 @@
-cd src/parallel/ ; pwd
+#!/bin/bash
+DIR="$(pwd)"
+SRC="$DIR/src/parallel/" #location of source files
+cd $SRC
 HASAVX2=$(gcc -mavx2 -dM -E - < /dev/null | egrep "AVX2" | sort)
 if [ -z "$HASAVX2" ]; 
 then 
@@ -24,6 +27,6 @@ else
   done
   echo "Done compiling!"
   echo "Running python script: it will take many hours!"
-  cd ../../
+  cd $DIR
   python3 parallel-build-script.py -p $CPUs
 fi

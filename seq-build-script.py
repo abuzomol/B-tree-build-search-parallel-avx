@@ -21,7 +21,7 @@ header = "N,node size,build horizontal(s),build vertical(s),seq search(s),binary
 pwd = subprocess.run('pwd', stdout=subprocess.PIPE,
                      universal_newlines=True).stdout[:-1]
 programPath = pwd + '/src/serial/'
-filePath = pwd + "/experiments/"
+filePath = pwd + "/experiments/data/"
 print(filePath)
 
 print(programPath)
@@ -36,7 +36,7 @@ for program in programs:
 # scan through second layer node size
 # nodeSizes = [16,32,48]
 nodeSizes = [8*i for i in range(1, 65)]
-#L = [17]
+L = [17]
 for N in itemSize:
     for C in nodeSizes:
         for program in programs:

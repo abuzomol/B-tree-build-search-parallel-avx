@@ -1,4 +1,7 @@
-cd src/serial/ ; pwd
+#!/bin/bash
+DIR="$(pwd)"
+SRC="$DIR/src/serial/" #location of source files
+cd $SRC
 HASAVX2=$(gcc -mavx2 -dM -E - < /dev/null | egrep "AVX2" | sort)
 if [ -z "$HASAVX2" ]; 
 then 
@@ -16,6 +19,6 @@ else
   g++ -std=c++17 -Ddtype=double -mavx2 -O3 mathHeader.cpp seq-build-search.cpp -o seqBuildSearchDouble
   echo "Done compiling!"
   echo "Running python script: it will take 1 hour to 2 hours!"
-  cd ../../
+  cd $DIR
   python3 seq-build-script.py
 fi
