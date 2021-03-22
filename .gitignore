@@ -26,5 +26,5 @@ parallelBuildSearchFloat1
 parallelBuildSearchInt1    
 parallelBuildSearchLong1
 
-.vscode/
-experiments/
+.vscode/**
+experiments/**
