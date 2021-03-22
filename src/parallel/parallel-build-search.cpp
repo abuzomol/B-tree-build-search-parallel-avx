@@ -28,18 +28,6 @@ using dtype = int;
 #define processors 8;
 #endif
 
-class RandomNumberBetween
-{
-public:
-  RandomNumberBetween(int low, int high)
-      : random_engine_{std::random_device{}()}, distribution_{low, high} {}
-  int operator()() { return distribution_(random_engine_); }
-
-private:
-  std::mt19937 random_engine_;
-  std::uniform_int_distribution<int> distribution_;
-};
-
 int main(int argc, char **argv)
 {
   //***********************************************************
@@ -82,9 +70,10 @@ int main(int argc, char **argv)
 
   //Construct random queries
   std::vector<dtype> queries(itemsSize);
-  // std::generate_n(std::back_inserter(queries), itemsSize, RandomNumberBetween(1, itemsSize + 10));
   for (int i = 0; i < itemsSize; i++)
     queries[i] = items[i]; // non-random queries
+  std::random_shuffle(queries.begin(), queries.end());
+  
   //std::vector<ll> queries = {-1, 2, 0, 3, 5, 16, 10, 17, 18, 200, 30};
   // std::cout << "tree:" << CHILD_SIZE - 1;
   auto totalNodes = (tree.capacity() - 1) / (CHILD_SIZE - 1);
