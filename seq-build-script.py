@@ -20,8 +20,8 @@ programs = ["seqBuildSearchInt", "seqBuildSearchLong",
 header = "N,node size,build horizontal(s),build vertical(s),seq search(s),binary search(s), simd search(s)\n"
 pwd = subprocess.run('pwd', stdout=subprocess.PIPE,
                      universal_newlines=True).stdout[:-1]
-programPath = pwd + '/code/serial/'
-filePath = pwd + "/data"
+programPath = pwd + '/src/serial/'
+filePath = pwd + "/experiments/"
 print(filePath)
 
 print(programPath)
@@ -30,7 +30,7 @@ print(programPath)
 itemSize = [2**25, 2**26, 2**27]
 for program in programs:
     for N in itemSize:
-        fileName = filePath + "/"+ program + "-" + str(N) + ".csv"
+        fileName = filePath + program + "-" + str(N) + ".csv"
         with open(fileName, "w") as fileInput:
             fileInput.write(header)
 # scan through second layer node size
@@ -51,6 +51,6 @@ for N in itemSize:
             for i in range(len(splitted)):
                 words = words + splitted[i] + ","
             words = words + "\n"
-            fileName = filePath + "/" + program + "-" + str(N) + ".csv"
+            fileName = filePath + program + "-" + str(N) + ".csv"
             with open(fileName, "a") as fileInput:
                 fileInput.write(words)
