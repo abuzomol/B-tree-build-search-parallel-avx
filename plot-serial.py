@@ -40,12 +40,13 @@ for N in itemSize: #3
 [print(label) for label in figureLabels]
 #read all csv files into data frames
 dfs = [pd.read_csv(sheet, sep=",", index_col=False, names = list(range(0,9))) for sheet in sheets]
-
+print(dfs[0])
+print(dfs[0][1])
+print(dfs[0][1][1:])
 fig, ax = plt.subplots()
 cols = dfs[0].keys()
 cols = [int(col) for col in cols] #list of columns 
-cols = cols[2:7] #excludes the first two columns
-print(cols)
+cols = cols[2:7]
 # some notes taken from https://thispointer.com/pandas-change-data-type-of-single-or-multiple-columns-of-dataframe-in-python/
 nodeSizes = [8*i for i in range(1, 65)]
     

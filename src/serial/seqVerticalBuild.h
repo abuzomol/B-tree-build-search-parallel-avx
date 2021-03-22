@@ -1,3 +1,10 @@
+/*
+This header file contain functions that construct B-trees bottom up using only N/B input reads for both perfect and complete B-trees.
+The function findif is an auxiliary function that helps to find the log_B (index) quickly which is used to find the ancestors of any leaf in the B-tree.
+*/
+
+
+
 
 #ifndef SEQ_VERTICAL_H
 #define SEQ_VERTICAL_H
@@ -12,7 +19,8 @@ using ll = int;
 #endif
 
 
-//function returns the first index i in hPowers that with value doesn't divide (k+1)/ B mod (B+1)^i not zero
+//function returns the first index i in hPowers that with value doesn't divide (k+1)/ B mod (B+1)^i not zero.
+// You can think of it as the floor of log_B k. 
 ll findIf(std::vector<ll> &hPowers, ll B, ll k)
 {
   ll i = 1; // 1  divides any number
@@ -30,7 +38,8 @@ ll findIf(std::vector<ll> &hPowers, ll B, ll k)
   return i;
 }
 
-//B is number of items in a node
+//A function to build a perfect B-tree bottom up from a given list of items. Given the height of the tree along with the node size B, 
+// this function scans the list of items once, and fill in all leaves and internal nodes of this B-tree.
 template <typename T, typename S>
 void buildPerfectTreeVertical(std::vector<S> &items, std::vector<T> &tree, ll nodeIndex, ll start, ll end, ll height, ll B)
 {
@@ -56,8 +65,9 @@ void buildPerfectTreeVertical(std::vector<S> &items, std::vector<T> &tree, ll no
   }
 }
 
-//method to build a tree in vertical way to speed reduce the IO complexity.
-//B is number of items in a node
+//A function to build a complete B-tree bottom up from a given list of items. Given the height of the tree along with the node size B, 
+// this function scans the list of items once, and fill in all leaves and internal nodes of this B-tree.
+// x indicates the total number of leaves at level height+1, while y indicates their parents.
 template <typename T, typename S>
 void buildCompleteTreeVertical(std::vector<S> &items, std::vector<T> &tree,
                                ll nodeIndex, ll start, ll end, ll height,

@@ -1,4 +1,4 @@
-cd code/serial/ ; pwd
+cd src/serial/ ; pwd
 HASAVX2=$(gcc -mavx2 -dM -E - < /dev/null | egrep "AVX2" | sort)
 if [ -z "$HASAVX2" ]; 
 then 
