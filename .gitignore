@@ -1,7 +1,5 @@
 *.o
 *.out
-.vscode
-expirements
 
 seqBuildSearchFloat
 seqBuildSearchLong
@@ -27,3 +25,6 @@ parallelBuildSearchDouble1
 parallelBuildSearchFloat1 
 parallelBuildSearchInt1    
 parallelBuildSearchLong1
+
+.vscode/
+experitments/
