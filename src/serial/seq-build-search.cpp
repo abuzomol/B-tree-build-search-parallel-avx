@@ -120,7 +120,7 @@ int main(int argc, char **argv)
   // std::cout << std::endl;
   //***********************************************************
   //Construct random queries
-  std::vector<dtype> queries;
+  std::vector<dtype> queries(itemsSize);
   for (int i = 0; i < itemsSize; i++)
       queries[i] = items[i];
   std::random_shuffle(queries.begin(), queries.end());
